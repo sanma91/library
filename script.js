@@ -34,12 +34,14 @@ submit.addEventListener("click", (event) => {
     tdAuthor.textContent = book.author.value;
     const tdPages = document.createElement("td");
     row.appendChild(tdPages);
-    tdPages.textContent = book.pages.value;
+    tdPages.textContent = book.pages.value;;
     const button = document.createElement("button");
     row.appendChild(button)
     button.textContent = "Remove";
     button.addEventListener("click", () => {
-        row.textContent = ""
+        row.textContent = "";
+        console.log(myLibrary);
+        console.log(myLibrary.length)
     })
     event.preventDefault()
 })

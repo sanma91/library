@@ -1,53 +1,45 @@
-const body = document.querySelector("body");
 const table = document.querySelector("table");
-const library = document.querySelector("#showLibrary");
-const addBook = document.querySelector("#addBook");
+
+const title = document.querySelector("#form-title");
+const author = document.querySelector("#form-author");
+const pages = document.querySelector("#form-pages");
+const submit = document.querySelector("#submit");
 const myLibrary = [];
+console.log(myLibrary);
+console.log(myLibrary.length);
 
 function Book(title, author, pages) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages
+    this.title = title
+    this.author = author;
+    this.pages = pages
 }
 
 function addBookToLibrary(book) {
-  myLibrary.push(book)
+    myLibrary.push(book)
 }
 
-const lotr = new Book("The Lord of the Rings", "John Ronald Reuel Tolkien", "1200");
-const hp = new Book("Harry Potter", "Joanne Rowling", "400");
-addBookToLibrary(lotr);
-addBookToLibrary(hp);
-
-function displayLibrary() {
-    for(let i = 0; i < myLibrary.length; i++) {
-        const row = document.createElement("tr");
-        table.appendChild(row);
-        const tdTitle = document.createElement("td");
-        row.appendChild(tdTitle);
-        tdTitle.textContent = myLibrary[i].title;
-        const tdAuthor = document.createElement("td");
-        row.appendChild(tdAuthor);
-        tdAuthor.textContent = myLibrary[i].author;
-        const tdPages = document.createElement("td");
-        row.appendChild(tdPages);
-        tdPages.textContent = myLibrary[i].pages;
-        const button = document.createElement("button");
-        button.textContent = "Remove";
-        row.appendChild(button)
-        button.addEventListener("click", () => {
-            row.textContent = ""
-        })
-    }
-}
-
-function showLibrary() {
-    library.addEventListener("click", () => {
-        displayLibrary()
+submit.addEventListener("click", (event) => {
+    const book = new Book(title, author, pages);
+    addBookToLibrary(book);
+    console.log(myLibrary);
+    console.log(myLibrary.length);
+    console.log(book.title.value);
+    const row = document.createElement("tr");
+    table.appendChild(row);
+    const tdTitle = document.createElement("td");
+    row.appendChild(tdTitle);
+    tdTitle.textContent = book.title.value;
+    const tdAuthor = document.createElement("td");
+    row.appendChild(tdAuthor);
+    tdAuthor.textContent = book.author.value;
+    const tdPages = document.createElement("td");
+    row.appendChild(tdPages);
+    tdPages.textContent = book.pages.value;
+    const button = document.createElement("button");
+    row.appendChild(button)
+    button.textContent = "Remove";
+    button.addEventListener("click", () => {
+        row.textContent = ""
     })
-}
-showLibrary()
-
-function newBook() {
-
-}
+    event.preventDefault()
+})

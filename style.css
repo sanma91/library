@@ -1,14 +1,21 @@
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
 }
 table {
     text-align: center;
     border-collapse: collapse;
+    width: 50%;
+    justify-content: center;
 }
 caption {
     font-size: 1.5rem;
     margin: 2rem;
+}
+form {
+    text-align: center;
+    width: 50%;
+    justify-content: center;
 }
 th, td {
     border: 1px solid black;

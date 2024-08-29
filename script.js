@@ -1,17 +1,27 @@
 const table = document.querySelector("table");
-
 const title = document.querySelector("#form-title");
 const author = document.querySelector("#form-author");
 const pages = document.querySelector("#form-pages");
 const submit = document.querySelector("#submit");
+const read = document.getElementsByName("read");
+const arrRead = [...read]
+
 const myLibrary = [];
 console.log(myLibrary);
 console.log(myLibrary.length);
 
-function Book(title, author, pages) {
+function Book(title, author, pages, id) {
     this.title = title
     this.author = author;
-    this.pages = pages
+    this.pages = pages;
+    this.isRead = function() {
+            for(let i = 0; i < arrRead.length; i++) {
+            if(arrRead[i].checked) {
+                return arrRead[i].value
+            }
+        }
+    };
+    this.id = id;
 }
 
 function addBookToLibrary(book) {
@@ -37,7 +47,10 @@ submit.addEventListener("click", (event) => {
     tdAuthor.textContent = book.author.value;
     const tdPages = document.createElement("td");
     row.appendChild(tdPages);
-    tdPages.textContent = book.pages.value;;
+    tdPages.textContent = book.pages.value;
+    const tdRead = document.createElement("td");
+    row.appendChild(tdRead);
+    tdRead.textContent = book.isRead();
     const button = document.createElement("button");
     button.setAttribute("style", "position:relative; right: -1rem; bottom: -2rem")
     row.appendChild(button)

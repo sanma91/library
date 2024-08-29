@@ -20,10 +20,13 @@ function addBookToLibrary(book) {
 
 submit.addEventListener("click", (event) => {
     const book = new Book(title, author, pages);
+    if(book.title.value === "" || book.author.value === "" || book.pages.value === "") {
+        alert("Complete all fields");
+        return "Complete all fields"
+    }
     addBookToLibrary(book);
     console.log(myLibrary);
     console.log(myLibrary.length);
-    console.log(book.title.value);
     const row = document.createElement("tr");
     table.appendChild(row);
     const tdTitle = document.createElement("td");
@@ -36,6 +39,7 @@ submit.addEventListener("click", (event) => {
     row.appendChild(tdPages);
     tdPages.textContent = book.pages.value;;
     const button = document.createElement("button");
+    button.setAttribute("style", "position:relative; right: -1rem; bottom: -2rem")
     row.appendChild(button)
     button.textContent = "Remove";
     button.addEventListener("click", () => {

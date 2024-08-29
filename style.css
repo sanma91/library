@@ -9,7 +9,6 @@ body {
 table {
     text-align: center;
     border-collapse: collapse;
-    flex-wrap: wrap;
 }
 caption {
     font-size: 1.5rem;
@@ -19,6 +18,11 @@ form {
     display: grid;
     height: 50%;
     width: 30%;
+}
+fieldset {
+    text-align: center;
+    align-self: center;
+    border: none;
 }
 label {
     align-self: last baseline;

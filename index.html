@@ -15,7 +15,13 @@
                     <input type="text" name="author" id="form-author">
                     <label for="form-pages">Pages</label>
                     <input type="number" name="form-pages" id="form-pages">
-                    <label for="submit" style="align-self: last baseline; text-align: center;">Submit</label>
+                    <fieldset style="font-weight: bold;">Have you read it?
+                        <label for="read">Yes</label>
+                        <input type="radio" name="read" id="yes" value="yes">
+                        <label for="read">No</label>
+                        <input type="radio" name="read" id="no" value="no">
+                    </fieldset>
+                    <label for="submit"></label>
                     <input type="submit" name="submit" id="submit" style="width: 50%; justify-self: center;">
                 </form>
                 <table>
@@ -25,6 +31,7 @@
                     <th id="title">Title</th>
                     <th id="author">Author</th>
                     <th id="pages">Pages</th>
+                    <th id="read">Read</th>
                 </tr>
             </thead>
         </table>

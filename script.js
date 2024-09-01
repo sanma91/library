@@ -7,9 +7,6 @@ const read = document.getElementsByName("read");
 const arrRead = [...read]
 
 const myLibrary = [];
-console.log(myLibrary);
-console.log(myLibrary.length);
-console.log(arrRead[0].id)
 
 function Book(title, author, pages) {
     this.title = title.value;
@@ -24,9 +21,6 @@ Book.prototype.isRead = function() {
         }
     }
 }
-
-// Book.prototype.toggleReadStatus = function()
-let indexNumber;
 
 function addBookToLibrary(book) {
     myLibrary.push(book)
@@ -59,21 +53,19 @@ function submitBook() {
         tdRead.appendChild(tdReadButton);
         tdReadButton.textContent = book.isRead();
         tdReadButton.setAttribute("style", "height: 50%; width; 50%; background-color: wheat; border: 1px solid black");
-        tdReadButton.addEventListener("click", () => {
-            // non funziona da rivedere
-            book.toggleReadStatus(tdReadButton.textContent)
-        })
+        // funzione da scrivere
         const button = document.createElement("button");
         button.setAttribute("style", "position:relative; right: -1rem; bottom: -2.25rem");
-        button.dataset.indexNumber = ++indexNumber;
         row.appendChild(button);
         button.textContent = "Remove";
         button.addEventListener("click", () => {
-        // array ritorna valori sbagliati, da ricontrollare
             row.textContent = "";
-            const index = myLibrary.indexOf(button.dataset.indexNumber);
-            const removeBook = myLibrary.splice(index - 1, 1);
-            return removeBook
+            let indexPos = myLibrary.indexOf(book);
+            console.log(indexPos);
+            let removeIndexPos = myLibrary.splice(indexPos, 1);
+            console.log(removeIndexPos);
+            console.log(myLibrary);
+            return myLibrary
         })
         event.preventDefault()
     })

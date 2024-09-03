@@ -52,7 +52,7 @@ function submitBook() {
         const tdReadButton = document.createElement("button");
         tdRead.appendChild(tdReadButton);
         tdReadButton.textContent = book.isRead();
-        tdReadButton.setAttribute("style", "height: 50%; width; 50%; background-color: wheat; border: 1px solid black");
+        tdReadButton.setAttribute("style", "width: 100px; height: 25px; background-color: wheat; border: 1px solid black");
         tdReadButton.addEventListener("click", () => {
             if(tdReadButton.textContent === "I have read it") {
                 tdReadButton.textContent = "Not read yet"

@@ -53,7 +53,13 @@ function submitBook() {
         tdRead.appendChild(tdReadButton);
         tdReadButton.textContent = book.isRead();
         tdReadButton.setAttribute("style", "height: 50%; width; 50%; background-color: wheat; border: 1px solid black");
-        // funzione da scrivere
+        tdReadButton.addEventListener("click", () => {
+            if(tdReadButton.textContent === "I have read it") {
+                tdReadButton.textContent = "Not read yet"
+            } else {
+                tdReadButton.textContent = "I have read it"
+            }
+        })
         const button = document.createElement("button");
         button.setAttribute("style", "position:relative; right: -1rem; bottom: -2.25rem");
         row.appendChild(button);
